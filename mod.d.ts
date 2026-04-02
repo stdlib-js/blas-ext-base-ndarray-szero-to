@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,24 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-szero-to' ).ndarray;
-
-
-// MAIN //
+import { float32ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Fills a one-dimensional single-precision floating-point ndarray with linearly spaced numeric elements which increment by `1` starting from zero.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing a one-dimensional input ndarray
-* @returns {ndarray} input ndarray
+* @param arrays - array-like object containing a one-dimensional input ndarray
+* @returns input ndarray
 *
 * @example
 * var Float32Array = require( '@stdlib/array-float32' );
@@ -46,13 +39,9 @@ var strided = require( '@stdlib/blas-ext-base-szero-to' ).ndarray;
 * var out = szeroTo( [ x ] );
 * // returns <ndarray>[ 0.0, 1.0, 2.0, 3.0 ]
 */
-function szeroTo( arrays ) {
-	var x = arrays[ 0 ];
-	strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-	return x;
-}
+declare function szeroTo( arrays: [ float32ndarray ] ): float32ndarray;
 
 
 // EXPORTS //
 
-module.exports = szeroTo;
+export = szeroTo;
